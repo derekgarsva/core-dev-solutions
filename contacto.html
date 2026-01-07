@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración | CORE_DEV</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { 
+            background-color: #050505; 
+            color: white; 
+            overflow-x: hidden; 
+            position: relative;
+            min-height: 100vh;
+        }
+        .step-hidden { display: none; }
+        .progress-bar { transition: width 0.6s cubic-bezier(0.65, 0, 0.35, 1); }
+        .card-active { border-color: #2563eb !important; background: rgba(37, 99, 235, 0.1) !important; color: white !important; }
+        input { border-radius: 0 !important; }
+        
+        .gradient-text { 
+            background: linear-gradient(to right, #3b82f6, #8b5cf6); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+
+        /* Aura de fondo para coherencia */
+        body::after {
+            content: "";
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40vh;
+            background: linear-gradient(to top, rgba(37, 99, 235, 0.08) 0%, rgba(5, 5, 5, 0) 100%);
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
+</head>
+<style>
+    body { 
+        background-color: #050505; 
+        color: white; 
+        min-height: 100vh;
+        overflow-x: hidden; /* Seguridad operativa */
+    }
+
+    /* ELIMINACIÓN DE BARRAS */
+    html::-webkit-scrollbar { display: none; }
+    html { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Tu resto de código CSS (gradientes, animaciones, etc.) */
+    .gradient-text { ... }
+</style>
+<body class="font-sans antialiased">
+
+    <nav class="p-6 md:p-8 max-w-7xl mx-auto flex justify-between items-center relative z-20">
+        <div class="text-xl md:text-2xl font-black tracking-tighter italic text-white">CORE<span class="text-blue-600">_</span>DEV</div>
+        <a href="index.html" class="text-[9px] md:text-[10px] uppercase tracking-widest text-zinc-600 hover:text-white transition italic">// Salir</a>
+    </nav>
+
+    <div class="max-w-xl mx-auto px-6 md:px-8 py-8 md:py-12 relative z-10">
+        <div class="w-full bg-zinc-900 h-[1px] mb-12 md:mb-16">
+            <div id="bar" class="progress-bar bg-blue-600 h-full w-1/4"></div>
+        </div>
+
+        <div id="step1" class="space-y-6 md:space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <span class="text-blue-600 font-mono text-[9px] md:text-[10px] tracking-[0.5em] uppercase italic">// Identificacion_Sujeto</span>
+            <h2 class="text-4xl md:text-5xl font-black tracking-tighter uppercase leading-none">
+                Tu <span class="gradient-text">Nombre</span> <br> o Empresa.
+            </h2>
+            <div class="space-y-6">
+                <input type="text" id="userName" placeholder="NOMBRE O MARCA" 
+                    class="w-full bg-transparent border-b border-zinc-800 p-3 md:p-4 text-xl md:text-2xl font-bold focus:outline-none focus:border-blue-600 transition uppercase tracking-tighter text-white">
+                <button onclick="goToStep(2)" class="w-full bg-white text-black p-4 md:p-5 font-black text-xs tracking-[0.3em] uppercase hover:bg-blue-600 hover:text-white transition-all">Siguiente -></button>
+            </div>
+        </div>
+
+        <div id="step2" class="step-hidden space-y-8 md:space-y-10 animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <header class="space-y-2">
+                <span class="text-blue-600 font-mono text-[9px] md:text-[10px] tracking-[0.5em] uppercase italic">// Configuracion_Tecnica</span>
+                <h2 class="text-3xl md:text-4xl font-black tracking-tighter uppercase leading-tight">Define el <br> <span class="gradient-text">alcance</span>.</h2>
+            </header>
+            
+            <div class="space-y-6 md:space-y-8">
+                <div class="space-y-3">
+                    <label class="text-[8px] md:text-[9px] text-zinc-500 font-bold uppercase tracking-[0.2em]">Selecciona el Servicio:</label>
+                    <div class="grid grid-cols-1 gap-2">
+                        <button onclick="selectOption('projectType', 'WEB PRO', this)" class="type-btn text-left border border-zinc-900 p-3 md:p-4 text-[9px] md:text-[10px] font-bold uppercase tracking-widest hover:border-zinc-700 transition-all bg-zinc-950/50 text-zinc-500">Desarrollo Web Profesional</button>
+                        <button onclick="selectOption('projectType', 'ECOMMERCE', this)" class="type-btn text-left border border-zinc-900 p-3 md:p-4 text-[9px] md:text-[10px] font-bold uppercase tracking-widest hover:border-zinc-700 transition-all bg-zinc-950/50 text-zinc-500">Tienda Online / E-commerce</button>
+                        <button onclick="selectOption('projectType', 'SOFTWARE AI', this)" class="type-btn text-left border border-zinc-900 p-3 md:p-4 text-[9px] md:text-[10px] font-bold uppercase tracking-widest hover:border-zinc-700 transition-all bg-zinc-950/50 text-zinc-500">Software a Medida / IA</button>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <label class="text-[8px] md:text-[9px] text-zinc-500 font-bold uppercase tracking-[0.2em]">Inversion Estimada (USD):</label>
+                    <div class="grid grid-cols-3 gap-2">
+                        <button onclick="selectOption('budget', '300-500', this)" class="budget-btn border border-zinc-900 py-3 text-[9px] md:text-[10px] font-bold bg-zinc-950/50 text-zinc-500 hover:border-zinc-700 transition-all">300-500</button>
+                        <button onclick="selectOption('budget', '500-1K', this)" class="budget-btn border border-zinc-900 py-3 text-[9px] md:text-[10px] font-bold bg-zinc-950/50 text-zinc-500 hover:border-zinc-700 transition-all">500-1K</button>
+                        <button onclick="selectOption('budget', '1K+', this)" class="budget-btn border border-zinc-900 py-3 text-[9px] md:text-[10px] font-bold bg-zinc-950/50 text-zinc-500 hover:border-zinc-700 transition-all">1K+</button>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <label class="text-[8px] md:text-[9px] text-zinc-500 font-bold uppercase tracking-[0.2em]">Funcion Indispensable:</label>
+                    <input type="text" id="mainFeature" placeholder="EJ: PASARELA, IA, CRM..." 
+                        class="w-full bg-zinc-950 border border-zinc-900 p-3 md:p-4 text-[10px] font-bold uppercase focus:outline-none focus:border-blue-600 transition-all placeholder:text-zinc-800 text-white">
+                </div>
+
+                <button onclick="goToStep(3)" class="w-full bg-white text-black p-4 md:p-5 font-black text-xs tracking-[0.3em] uppercase hover:bg-blue-600 hover:text-white transition-all">Continuar -></button>
+            </div>
+            <button onclick="goToStep(1)" class="text-[8px] md:text-[9px] text-zinc-700 hover:text-white transition uppercase font-mono tracking-widest">Volver</button>
+        </div>
+
+        <div id="step3" class="step-hidden space-y-6 md:space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <span class="text-blue-600 font-mono text-[9px] md:text-[10px] tracking-[0.5em] uppercase italic">// Ejecucion</span>
+            <h2 class="text-4xl md:text-5xl font-black tracking-tighter uppercase leading-none">Nivel de <br> <span class="gradient-text">Prioridad</span>.</h2>
+            <div class="grid grid-cols-1 gap-3 md:gap-4">
+                <button onclick="finish('CRITICA')" class="text-left border border-zinc-900 p-5 md:p-6 hover:border-blue-600 transition group bg-zinc-950/50">
+                    <span class="block font-bold uppercase text-sm tracking-tighter group-hover:text-blue-500 italic">Protocolo ASAP</span>
+                    <span class="text-[8px] md:text-[9px] text-zinc-600 uppercase">Ejecucion inmediata.</span>
+                </button>
+                <button onclick="finish('ESTANDAR')" class="text-left border border-zinc-900 p-5 md:p-6 hover:border-zinc-500 transition group bg-zinc-950/50">
+                    <span class="block font-bold uppercase text-sm tracking-tighter group-hover:text-white italic">Planificacion</span>
+                    <span class="text-[8px] md:text-[9px] text-zinc-600 uppercase">Evaluacion estrategica.</span>
+                </button>
+            </div>
+            <button onclick="goToStep(2)" class="text-[8px] md:text-[9px] text-zinc-700 hover:text-white transition uppercase font-mono tracking-widest">Reconfigurar</button>
+        </div>
+    </div>
+
+    <script>
+        let data = { name: "", projectType: "NO SELECCIONADO", budget: "NO SELECCIONADO", feature: "", priority: "" };
+
+        function selectOption(key, value, btn) {
+            data[key] = value;
+            const groupClass = key === 'projectType' ? '.type-btn' : '.budget-btn';
+            document.querySelectorAll(groupClass).forEach(b => b.classList.remove('card-active'));
+            btn.classList.add('card-active');
+        }
+
+        function goToStep(step) {
+            if (step === 2) {
+                const nameInput = document.getElementById('userName').value;
+                if(nameInput.length < 2) { return; }
+                data.name = nameInput;
+                document.getElementById('bar').style.width = '66%';
+            } else if (step === 3) {
+                data.feature = document.getElementById('mainFeature').value || "NO ESPECIFICADO";
+                document.getElementById('bar').style.width = '100%';
+            } else {
+                document.getElementById('bar').style.width = '33%';
+            }
+            document.querySelectorAll('[id^="step"]').forEach(el => el.classList.add('step-hidden'));
+            document.getElementById('step' + step).classList.remove('step-hidden');
+        }
+
+        function finish(priority) {
+            data.priority = priority;
+            const phone = "584243087887";
+            const text = "NUEVA CONSULTA CORE DEV\n\n" +
+                         "CLIENTE: " + data.name.toUpperCase() + "\n" +
+                         "SERVICIO: " + data.projectType + "\n" +
+                         "PRESUPUESTO: " + data.budget + "\n" +
+                         "ESPECIAL: " + data.feature.toUpperCase() + "\n" +
+                         "PRIORIDAD: " + data.priority + "\n\n" +
+                         "Solicito auditoria para iniciar.";
+
+            const whatsappUrl = "https://wa.me/" + phone + "?text=" + encodeURIComponent(text);
+            window.open(whatsappUrl, "_blank");
+        }
+        lucide.createIcons();
+    </script>
+</body>
+</html>

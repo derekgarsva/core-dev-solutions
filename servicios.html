@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios | CORE_DEV</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        body { 
+            background-color: #050505;
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .gradient-text { 
+            background: linear-gradient(to right, #3b82f6, #8b5cf6); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+        body::after {
+            content: "";
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 65vh;
+            background: linear-gradient(to top, 
+                rgba(37, 99, 235, 0.12) 0%, 
+                rgba(37, 99, 235, 0.03) 40%, 
+                rgba(5, 5, 5, 0) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+    </style>
+</head>
+<style>
+    body { 
+        background-color: #050505; 
+        color: white; 
+        min-height: 100vh;
+        overflow-x: hidden; /* Seguridad operativa */
+    }
+
+    /* ELIMINACIÓN DE BARRAS */
+    html::-webkit-scrollbar { display: none; }
+    html { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Tu resto de código CSS (gradientes, animaciones, etc.) */
+    .gradient-text { ... }
+</style>
+<body class="text-white font-sans antialiased">
+    
+    <nav class="flex flex-col md:flex-row justify-between items-center py-8 md:py-14 px-6 md:px-12 max-w-6xl mx-auto relative z-20 gap-8 md:gap-0">
+        <div class="text-2xl font-black tracking-tighter italic text-white">CORE<span class="text-blue-600">_</span>DEV</div>
+        <div class="flex space-x-6 md:space-x-14 text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.5em] font-bold">
+            <a href="index.html" class="text-zinc-600 hover:text-white transition">Home</a>
+            <a href="servicios.html" class="text-blue-500">Servicios</a>
+            <a href="contacto.html" class="text-zinc-600 hover:text-white transition">Contacto</a>
+        </div>
+    </nav>
+
+    <section class="pt-20 md:pt-40 pb-32 md:pb-60 px-6 md:px-10 max-w-6xl mx-auto relative z-10">
+        
+        <div class="max-w-3xl mb-24 md:mb-48">
+            <span class="text-blue-600 font-mono text-[9px] md:text-[10px] tracking-[0.4em] md:tracking-[0.6em] uppercase italic block mb-6 md:mb-8">// Protocolo_de_Ejecucion</span>
+            <h2 class="text-5xl md:text-7xl lg:text-[120px] font-black tracking-tighter uppercase leading-[0.85] md:leading-[0.75] mb-12 md:mb-20 italic">
+                <span class="gradient-text block">Soluciones</span> 
+                <span class="text-white drop-shadow-[0_0_60px_rgba(255,255,255,0.1)]">Hechas a Mano.</span>
+            </h2>
+            <p class="text-zinc-500 text-lg md:text-2xl font-light leading-relaxed max-w-2xl border-l-[1px] border-zinc-800 pl-6 md:pl-12 py-2 md:py-4">
+                No construimos webs, diseñamos <span class="text-white italic">activos operativos</span>. Ingeniería de alto nivel para marcas que no aceptan el promedio.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-zinc-900/30 border border-zinc-900 shadow-2xl overflow-hidden">
+            
+            <div class="bg-black p-12 md:p-24 hover:bg-zinc-950 transition-all duration-1000 group">
+                <div class="mb-8 md:mb-14 text-blue-500/80 transition-transform group-hover:scale-110 duration-700">
+                    <i data-lucide="code-2" class="w-10 h-10 md:w-14 md:h-14" style="stroke-width: 1px;"></i>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold mb-6 md:mb-10 tracking-tighter italic uppercase leading-[0.9]">Arquitectura <br> Web Pro.</h3>
+                <p class="text-zinc-600 text-sm mb-10 md:mb-14 leading-relaxed max-w-xs">Interfaces de alto rendimiento bajo estándares de silicio. Velocidad bruta y diseño impecable.</p>
+                <div class="flex gap-6 opacity-20 md:opacity-5 group-hover:opacity-100 transition-opacity duration-1000 text-blue-600">
+                    <i data-lucide="layout" class="w-5 h-5"></i>
+                    <i data-lucide="zap" class="w-5 h-5"></i>
+                </div>
+            </div>
+
+            <div class="bg-black p-12 md:p-24 hover:bg-zinc-950 transition-all duration-1000 group border-t md:border-t-0 md:border-l border-zinc-900">
+                <div class="mb-8 md:mb-14 text-purple-500/80 transition-transform group-hover:scale-110 duration-700">
+                    <i data-lucide="shopping-bag" class="w-10 h-10 md:w-14 md:h-14" style="stroke-width: 1px;"></i>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold mb-6 md:mb-10 tracking-tighter italic uppercase leading-[0.9]">E-commerce <br> de Alto Flujo.</h3>
+                <p class="text-zinc-600 text-sm mb-10 md:mb-14 leading-relaxed max-w-xs">Sistemas de conversión masiva con integraciones globales. Cero fricción, máximo beneficio.</p>
+                <div class="flex gap-6 opacity-20 md:opacity-5 group-hover:opacity-100 transition-opacity duration-1000 text-purple-600">
+                    <i data-lucide="credit-card" class="w-5 h-5"></i>
+                    <i data-lucide="database" class="w-5 h-5"></i>
+                </div>
+            </div>
+
+            <div class="bg-black p-12 md:p-24 hover:bg-zinc-950 transition-all duration-1000 group border-t border-zinc-900">
+                <div class="mb-8 md:mb-14 text-green-500/80 transition-transform group-hover:scale-110 duration-700">
+                    <i data-lucide="cpu" class="w-10 h-10 md:w-14 md:h-14" style="stroke-width: 1px;"></i>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold mb-6 md:mb-10 tracking-tighter italic uppercase leading-[0.9]">Inteligencia <br> Aplicada.</h3>
+                <p class="text-zinc-600 text-sm mb-10 md:mb-14 leading-relaxed max-w-xs">Implementación de modelos IA para automatización de procesos críticos y toma de decisiones.</p>
+                <div class="flex gap-6 opacity-20 md:opacity-5 group-hover:opacity-100 transition-opacity duration-1000 text-green-600">
+                    <i data-lucide="bot" class="w-5 h-5"></i>
+                    <i data-lucide="binary" class="w-5 h-5"></i>
+                </div>
+            </div>
+
+            <div class="bg-black p-12 md:p-24 hover:bg-zinc-950 transition-all duration-1000 group border-t md:border-l border-zinc-900">
+                <div class="mb-8 md:mb-14 text-red-500/80 transition-transform group-hover:scale-110 duration-700">
+                    <i data-lucide="shield-check" class="w-10 h-10 md:w-14 md:h-14" style="stroke-width: 1px;"></i>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold mb-6 md:mb-10 tracking-tighter italic uppercase leading-[0.9]">Búnker de <br> Seguridad.</h3>
+                <p class="text-zinc-600 text-sm mb-10 md:mb-14 leading-relaxed max-w-xs">Mantenimiento proactivo y blindaje de datos. Tu infraestructura protegida 24/7/365.</p>
+                <div class="flex gap-6 opacity-20 md:opacity-5 group-hover:opacity-100 transition-opacity duration-1000 text-red-600">
+                    <i data-lucide="lock" class="w-5 h-5"></i>
+                    <i data-lucide="server" class="w-5 h-5"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-32 md:mt-64 text-center relative z-10">
+            <a href="contacto.html" class="inline-block bg-white text-black px-10 md:px-16 py-5 md:py-7 font-black text-[10px] md:text-[11px] tracking-[0.5em] md:tracking-[0.7em] uppercase hover:bg-blue-600 hover:text-white transition-all duration-700 rounded-none shadow-2xl">
+                Iniciar Auditoría <span>-></span>
+            </a>
+        </div>
+    </section>
+
+    <footer class="p-12 md:p-24 text-center border-t border-zinc-900/20 mt-20 text-[8px] md:text-[10px] text-zinc-800 uppercase tracking-[0.5em] md:tracking-[1em] relative z-10">
+        CORE_DEV // LAB_SYSTEMS // 2026
+    </footer>
+
+    <script>
+        window.onload = function() {
+            lucide.createIcons();
+        };
+    </script>
+</body>
+</html>
